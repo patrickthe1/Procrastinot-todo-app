@@ -1,36 +1,30 @@
-//Storage module 
-const StorageModule = (()=> {
-    const STORAGE_KEY = "todoAppData";
+const StorageModule = (() => {
+  const STORAGE_KEY = "todoApp";
 
-    //saveDatatoLocalStorage
-    function saveDatatoLocalStorage(data){
-    try {
-        const serializeData = JSON.stringify(data);
-        localStorage.setItem(STORAGE_KEY,serializeData);
-        console.log("Data Saved to Local Storage");
-    }
-    catch (error){
-        console.log("Error Saving data To localStoareg", error);
-    }
-    }
+  // Load data from localStorage
+  const loadFromStorage = () => {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    // Ensure the returned value is a valid array
+    return Array.isArray(data) ? data.filter((item) => item !== null) : [];
+  };
 
-    function loadFromStorage(){
-        try{
-            const serializedData = localStorage.getItem(STORAGE_KEY);
-            if(!serializedData){
-                console.log("No data found in Local Storage, returning empty structure");
-                return null;
-            }
-            const data = JSON.parse(serializedData);
-            console.log("Data loaded from localStorage",data);
-            return data;
-        } catch(error){
-            console.log("Error loading data from local storage", error);
-            return null;        
-        }
-    }
+  // Save data to localStorage
+  const saveToStorage = (projects) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+  };
 
-    return {saveDatatoLocalStorage,loadFromStorage};
+  // Initialize storage (if needed)
+  const initializeStorage = () => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      saveToStorage([]); // Set up an empty array on first load
+    }
+  };
+
+  return {
+    loadFromStorage,
+    saveToStorage,
+    initializeStorage,
+  };
 })();
 
-export default StorageModule
+export default StorageModule;
