@@ -39,82 +39,107 @@
       position: relative;
       flex-direction: column;
     }
+
     #header {
       background-color: #16202b;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    #header h1 {
-      margin: 0;
-    }
-    #header input {
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-    }
-
-    #header {  
-      position: sticky; /* Makes the header stick */  
-      top: 0; /* Stick to the top of main-content */  
-      width: 100%; /* Full width */   
-      z-index: 10; /* Ensures header is above other content when scrolled */  
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       margin-bottom: 10px;
   }
   
+  #header h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.5em;
+  }
+  
+  #header input {
+      padding: 8px 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      width: 300px;
+      font-size: 1em;
+      margin-right: 2.5rem;
+      transition: box-shadow 0.2s ease;
+  }
+  
+  #header input:focus {
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+  }
+  
+  #header input::placeholder {
+      color: #bdc3c7;
+  }
+  
+  
   #welcome-message {  
-    font-family: 'Arial', sans-serif; /* Set a professional font */  
-    font-weight: bold; /* Make the font bold */  
-    font-size: 24px; /* Increase the font size for visibility */  
-    color: #333; /* Set a dark color for good contrast */  
-    margin: 20px 0; /* Add some margin for spacing */  
-    text-align: center; /* Center align the text */  
+    font-family: 'Arial', sans-serif;   
+    font-weight: bold;   
+    font-size: 24px;   
+    color: #333;   
+    margin: 20px 0;   
+    text-align: center;   
 }
     #content {
-        background-color: #f0f0f0; /* Dark blue for contrast */
-        padding: 20px; /* Inner spacing for content */
-        border-radius: 10px; /* Rounded corners for a modern look */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        min-height: 400px; /* Ensure enough vertical space */
-        display: flex; /* Enable flexible layout */
-        flex-direction: column; /* Stack content vertically */
-        align-items: center; /* Center align child elements */
-        justify-content: center; /* Align content to the top */
-        gap: 15px; /* Space between child elements */
-        color: #3a4a5b; /* Light text color */
+        background-color: #f0f0f0; 
+        padding: 20px; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        min-height: 400px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 15px; 
+        color: #3a4a5b; 
         margin-left: 20px;
         margin-right: 20px;
     }
 
-/* Styles for the home container */
+
 #home-container {
   margin: 2rem auto;
   padding: 2rem;
   max-width: 500px;
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa; 
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(24, 177, 191, 0.2); /* Subtle shadow */
-  text-align: center; /* Center content */
+  box-shadow: 0 4px 8px rgba(24, 177, 191, 0.2); 
+  text-align: center; 
   font-family: Arial, sans-serif;
 }
 
-/* Title style */
+
 #home-container h2 {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
-/* Form styles */
-#project-form , #project-card {
+
+#project-form {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  gap: 1rem; /* Add space between elements */
+  flex-direction: column; 
+  gap: 1rem; 
 }
 
-/* Input field styles */
+#project-card{
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem; 
+  width: 800px;
+  height: 500px;
+}
+
+
+
 #project-form input {
   padding: 0.8rem;
   font-size: 1rem;
@@ -125,14 +150,14 @@
 }
 
 #project-form input:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #007bff; 
 }
 
-/* Button styles */
+
 #project-form button , #project-card button {
   padding: 0.8rem;
   font-size: 1rem;
-  background-color: #007bff; /* Primary blue color */
+  background-color: #007bff; 
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -141,45 +166,45 @@
 }
 
 #project-form button:hover , #project-card button:hover{
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
-/* Styles for the todo-form-dialog container */
+
 #todo-form-dialog {
   position: fixed;
-  top: -100%; /* Initially hidden above the viewport */
+  top: -100%; 
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0; /* Hidden initially */
-  transition: all 0.4s ease; /* Smooth transition for appearance */
-  z-index: 999; /* Ensure it appears above other elements */
+  opacity: 0; 
+  transition: all 0.4s ease; 
+  z-index: 999; 
 }
 
-/* Active state for the dialog */
+
 #todo-form-dialog.active {
-  top: 0; /* Bring it into view */
-  opacity: 1; /* Fully visible */
+  top: 0; 
+  opacity: 1; 
   display: flex;
   flex-direction: column;
 }
 
-/* Styles for the todo-form */
+
 #todo-form {
   width: 90%;
   max-width: 400px;
   padding: 2rem;
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa; 
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   font-family: Arial, sans-serif;
 }
 
-/* Title of the form */
+
 #todo-form h2 {
   font-size: 1.8rem;
   color: #333;
@@ -187,7 +212,7 @@
   text-align: center;
 }
 
-/* Form fields */
+
 #todo-form input,
 #todo-form textarea,
 #todo-form select {
@@ -204,10 +229,10 @@
 #todo-form input:focus,
 #todo-form textarea:focus,
 #todo-form select:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #007bff; 
 }
 
-/* Submit and Cancel buttons */
+
 #todo-form button  {
   padding: 0.8rem;
   font-size: 1rem;
@@ -218,56 +243,92 @@
 }
 
 #todo-form button.submit , #project-card#add-todo {
-  background-color: #007bff; /* Primary blue */
+  background-color: #007bff; 
   color: #fff;
 }
 
 #todo-form button.submit:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 #todo-form button.cancel {
-  background-color: #6c757d; /* Gray for cancel button */
+  background-color: #6c757d; 
   color: #fff;
   margin-left: 0.5rem;
 }
 
 #todo-form button.cancel:hover {
-  background-color: #5a6268; /* Darker gray on hover */
+  background-color: #5a6268; 
 }
 
-ul#todos-container {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0;
-  margin: 0;
+/* Todos Container */
+#todos-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
-/* Todo List Items */
-ul#todos-container li {
+/* Todo Item */
+.todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff; /* White background for contrast */
-  border: 1px solid #dddddd; /* Light border */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 0.8rem 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-  font-size: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox */
+.todo-checkbox {
+  margin-right: 1rem;
+  transform: scale(2.1);
+  cursor: pointer;
+}
+
+/* Todo Details */
+.todo-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-details h3 {
+  margin: 0;
+  font-size: 2rem;
   color: #333;
 }
 
-/* Todo Text */
-ul#todos-container li span.todo-text {
-  flex-grow: 1; /* Takes up remaining space */
+.todo-details p {
+  margin: 0;
+  font-size: 1.9rem;
 }
 
-/* Buttons for Todo Items */
-ul#todos-container li button {
-  margin-left: 0.5rem;
-  padding: 0.5rem 0.8rem;
+/* Priority Styling */
+.priority-low {
+  color: #28a745; /* Green */
+}
+
+.priority-medium {
+  color: #ffc107; /* Yellow */
+}
+
+.priority-high {
+  color: #dc3545; /* Red */
+}
+
+/* Action Buttons */
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.todo-actions button {
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
   border: none;
   border-radius: 5px;
@@ -275,30 +336,170 @@ ul#todos-container li button {
   transition: background-color 0.3s ease;
 }
 
-ul#todos-container li button.delete {
-  background-color: #dc3545; /* Red for delete */
-  color: #fff;
-}
-
-ul#todos-container li button.delete:hover {
-  background-color: #c82333; /* Darker red on hover */
-}
-
-ul#todos-container li button.edit {
-  background-color: #ffc107; /* Yellow for edit */
+.todo-actions button.edit {
+  background-color: #ffc107;
   color: #333;
 }
 
-ul#todos-container li button.edit:hover {
-  background-color: #e0a800; /* Darker yellow on hover */
+.todo-actions button.edit:hover {
+  background-color: #e0a800;
 }
 
-/* Empty State for Todos */
-ul#todos-container li.empty-state {
-  text-align: center;
-  font-style: italic;
-  color: #777;
+.todo-actions button.delete {
+  background-color: #dc3545;
+  color: #fff;
 }
+
+.todo-actions button.delete:hover {
+  background-color: #c82333;
+}
+
+/* Project List */
+#projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  background-color: #06104a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.project-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Delete Button */
+.delete-project-btn {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-project-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+.delete-project-btn:active {
+  background-color: #b21f2d;
+}
+
+#high-priority-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#high-priority-list li {
+  background-color: #ffdfdf; /* Light red for emphasis */
+  color: #a10000; /* Dark red text */
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#high-priority-list li:hover {
+  background-color: #ffc2c2; /* Slightly lighter red on hover */
+}
+
+/* Overlay styling */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Edit Todo Form styling */
+.edit-todo-form {
+  background-color: white;
+  padding: 2em;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-todo-form h3 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: #2c3e50;
+}
+
+.edit-todo-form label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.edit-todo-form input,
+.edit-todo-form textarea,
+.edit-todo-form select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.edit-todo-form button {
+  padding: 0.7em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #2980b9;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+
+
 
 
 

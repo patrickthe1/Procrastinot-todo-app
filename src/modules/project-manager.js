@@ -19,8 +19,16 @@ import StorageModule from "./storage-module";
         }       
     }
 
+    const deleteProject = (projectName) => {
+        let projects = StorageModule.loadFromStorage();
+        projects = projects.filter(project => project.name !== projectName);
+        StorageModule.saveToStorage(projects);
+    };
+    
+
     return{
-        addProject
+        addProject,
+        deleteProject
     }
 })();
 
